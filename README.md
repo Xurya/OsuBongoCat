@@ -15,5 +15,5 @@ Here is an example of Bongo Cat (GIF from Tenor):
 
 How to use:
 1. Compile and execute the application from the External class. 
-1.5. Run Osu (Optional)
-2. Press x and z to trigger animation in real time.
+2. Run Osu (Optional)
+3. Press x and z to trigger animation in real time.

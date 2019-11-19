@@ -8,7 +8,7 @@ Here is a link to the Osu website: https://osu.ppy.sh/home
 Here is a link to my profile: https://osu.ppy.sh/users/11126911
 
 Here is an example of Bongo Cat (GIF from Tenor):
-![](https://tenor.com/view/bongo-cat-bongocat-meme-gif-12815911) 
+<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" />
 
 How to use:
 1. Compile and execute the application. 

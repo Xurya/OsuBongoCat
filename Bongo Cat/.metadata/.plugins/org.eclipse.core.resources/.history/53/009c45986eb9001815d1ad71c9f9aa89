@@ -1,0 +1,85 @@
+package code;
+import java.awt.*;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+/**
+ * BongoCat controller for my stream :)
+ * @author LsXxP
+ *
+ */
+public class BongoCat extends JPanel{
+	public Image p;
+	static Dimension size = new Dimension(466,313);
+	private String active = "idle";
+	
+	public BongoCat() {
+		setPreferredSize(size);
+		setBackground(Color.cyan);
+		start();
+	}
+	
+	public void start() {
+		
+		JFrame jf = new JFrame("Osu! Bongo Cat");
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setSize(size);
+        jf.setVisible(true);
+        
+        try {
+			p = ImageIO.read(getClass().getResource("/images/BongoCatNone.jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
+        
+        JLabel lblNewLabel = new JLabel();
+        lblNewLabel.setIcon(new ImageIcon(p));
+        jf.getContentPane().add(lblNewLabel, BorderLayout.CENTER);
+	}
+
+	public void setActive(String s) {
+		active = s;
+	}
+	
+	public String getActive() {
+		return active;
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawString("running", 4, 4);
+		
+		String a = getActive();
+		if(a.equals("x")) {
+			try {
+				p = ImageIO.read(getClass().getResource("/images/BongoCatLeft3.jpg"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else if(a.equals("z")){
+			ImageIcon right = new ImageIcon("/BongoCatRight3.jpg");
+			Image rightCatImg = right.getImage();
+			p = rightCatImg.getScaledInstance(466, 313, Image.SCALE_DEFAULT);
+		}else if(a.equals("xHold")) {
+			ImageIcon leftH = new ImageIcon("/BongoCatLeft2.jpg");
+			Image leftHoldCatImg = leftH.getImage();
+			p = leftHoldCatImg.getScaledInstance(466, 313, Image.SCALE_DEFAULT);
+		}else if(a.equals("zHold")) {
+			ImageIcon rightH = new ImageIcon("/BongoCatLeft2.jpg");
+			Image rightHoldCatImg = rightH.getImage();
+			p = rightHoldCatImg.getScaledInstance(466, 313, Image.SCALE_DEFAULT);
+		}else {
+			ImageIcon idle = new ImageIcon("/BongoCatNone.jpg");
+			Image idleCatImg = idle.getImage();
+			p = idleCatImg.getScaledInstance(466, 313, Image.SCALE_DEFAULT);
+		}
+
+		//g.drawImage(p, 0, 0, null);
+		
+	}
+}
+
+

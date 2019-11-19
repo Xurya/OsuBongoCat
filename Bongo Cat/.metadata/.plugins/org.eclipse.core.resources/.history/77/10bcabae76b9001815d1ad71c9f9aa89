@@ -1,0 +1,58 @@
+package code;
+
+import java.util.logging.*;
+
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.keyboard.NativeKeyEvent;
+import org.jnativehook.keyboard.NativeKeyListener;
+
+/**
+ * 
+ * @author user5342366 and Xurya
+ *
+ */
+public class External implements NativeKeyListener {
+	BongoCat cat = new BongoCat();
+	
+	public External() {
+		// Clear previous logging configurations.
+		LogManager.getLogManager().reset();
+
+		// Get the logger for "org.jnativehook" and set the level to off.
+		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
+		logger.setLevel(Level.OFF);
+	}
+	
+	public static void main(String[] args) {
+		try {
+			GlobalScreen.registerNativeHook();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		GlobalScreen.addNativeKeyListener(new External());
+	}
+	
+	@Override
+	public void nativeKeyPressed(NativeKeyEvent e) {
+		if(e.getKeyChar() == NativeKeyEvent.VC_X) {
+			cat.setActive("xHold");
+		}else if(e.getKeyChar() == NativeKeyEvent.VC_Z) {
+			cat.setActive("zHold");
+		}
+	}
+
+	@Override
+	public void nativeKeyReleased(NativeKeyEvent e) {
+		cat.setActive("idle");
+	}
+
+	@Override
+	public void nativeKeyTyped(NativeKeyEvent e) {
+		if(e.getKeyChar() == NativeKeyEvent.VC_X) {
+			cat.setActive("x");
+		}else if(e.getKeyChar() == NativeKeyEvent.VC_Z) {
+			cat.setActive("z");
+		}
+	}
+}

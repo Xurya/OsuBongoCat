@@ -1,0 +1,103 @@
+package code;
+import java.awt.*;
+
+import javax.swing.*;
+
+/**
+ * BongoCat controller for my stream :)
+ * @author LsXxP
+ *
+ */
+public class BongoCat extends JPanel{
+	public Image p;
+	static Dimension size = new Dimension(466,313);
+	private String active = "idle";
+	
+	private JLabel l;
+	private JFrame j;
+	
+	public BongoCat() {
+		setPreferredSize(size);
+		setBackground(Color.cyan);
+		start();
+	}
+	
+	/*
+	public static void main(String[] args) {
+		BongoCat b = new BongoCat();
+		SwingUtilities.invokeLater(new Runnable() {
+	         public void run() {
+	            b.start();
+	         }
+	    });
+	}
+	*/
+	
+	public void start() {
+		
+		j = new JFrame("Osu! Bongo Cat");
+		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        j.setSize(size);
+        j.setVisible(true);
+        jf.getContentPane().setLayout(null);;
+        
+        
+        JLabel lblNewLabel = new JLabel();
+        lblNewLabel.setBounds(0, 0, 452, 276);
+        lblNewLabel.setIcon(new ImageIcon(BongoCat.class.getResource("/images/BongoCatNone.jpg")));
+        jf.getContentPane().add(lblNewLabel);
+        jf.repaint();
+        
+        
+        update(lblNewLabel, jf);
+	}
+
+	public void setActive(String s) {
+		active = s;
+	}
+	
+	public String getActive() {
+		return active;
+	}
+	
+	
+	public void update() {
+		String a = getActive();
+		
+		if(a.equals("x")) {
+			l.setIcon(new ImageIcon(BongoCat.class.getResource("/images/BongoCatLeft3.jpg")));
+		}else if(a.equals("z")){
+			l.setIcon(new ImageIcon(BongoCat.class.getResource("/images/BongoCatRight3.jpg")));
+		}else if(a.equals("xHold")) {
+			l.setIcon(new ImageIcon(BongoCat.class.getResource("/images/BongoCatLeft2.jpg")));
+		}else if(a.equals("zHold")) {
+			l.setIcon(new ImageIcon(BongoCat.class.getResource("/images/BongoCatRight2.jpg")));
+		}else {
+			l.setIcon(new ImageIcon(BongoCat.class.getResource("/images/BongoCatNone.jpg")));
+		}
+		
+		j.getContentPane().add(l);
+        j.repaint();
+        
+        /*
+        int delay = 10; //milliseconds
+        ActionListener taskPerformer = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	update(l,j);
+            }
+        };
+        new Timer(delay, taskPerformer).start();
+        */
+	}
+	
+	
+	/*
+	@Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(p, 0, 0, this);
+    }
+    */
+}
+
+

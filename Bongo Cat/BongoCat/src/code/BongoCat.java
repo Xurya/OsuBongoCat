@@ -22,17 +22,6 @@ public class BongoCat extends JPanel{
 		start();
 	}
 	
-	/*
-	public static void main(String[] args) {
-		BongoCat b = new BongoCat();
-		SwingUtilities.invokeLater(new Runnable() {
-	         public void run() {
-	            b.start();
-	         }
-	    });
-	}
-	*/
-	
 	public void start() {
 		
 		j = new JFrame("Osu! Bongo Cat");

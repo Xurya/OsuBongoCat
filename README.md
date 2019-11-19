@@ -8,7 +8,9 @@ Here is a link to the Osu website: https://osu.ppy.sh/home
 Here is a link to my profile: https://osu.ppy.sh/users/11126911
 
 Here is an example of Bongo Cat (GIF from Tenor):
-<img src="https://media1.tenor.com/images/110e7c1e1c8c8953e787b56fdff866ed/tenor.gif?itemid=12815911" width="10" height="10" />
+
+
+<img src="https://media1.tenor.com/images/110e7c1e1c8c8953e787b56fdff866ed/tenor.gif?itemid=12815911" width="100" height="100" />
 
 How to use:
 1. Compile and execute the application. 
